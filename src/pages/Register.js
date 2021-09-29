@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
-import { GoPencil } from "react-icons/go"
+import { GoPencil } from "react-icons/go";
 import { toast } from "react-toastify";
 import AuthService from "../services/AuthService";
 export default function Register() {
@@ -9,35 +9,33 @@ export default function Register() {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm({  });
+  } = useForm({});
 
   const password = useRef({});
   password.current = watch("password", "");
 
   const onSubmit = (data) => {
-     
-      let authService = new AuthService()
-     authService.candidateRegister(data).then((result)=> {
-      
-      result.data.success ? toast.success(result.data.message) : toast.warning(result.data.message)
-     console.log(result.data.message)
-    })
-    
-  }
-
+    let authService = new AuthService();
+    authService.candidateRegister(data).then((result) => {
+      result.data.success
+        ? toast.success(result.data.message)
+        : toast.warning(result.data.message);
+      console.log(result.data.message);
+    });
+  };
 
   return (
-    
     <div className="min-w-screen min-h-screen flex items-center justify-center px-5 py-5">
-      
       <div className="w-full max-w-lg">
         <div className="w-full max-w-lg">
           <form
             className="bg-gray-200 shadow-2xl rounded px-8 pt-6 pb-8 mb-4"
             onSubmit={handleSubmit(onSubmit)}
           >
-             <label className="text-black-300 flex items-center justify-center font-bold text-xl mb-3 ">Kayıt Ol {GoPencil}</label>
-            
+            <label className="text-black-300 flex items-center justify-center font-bold text-xl mb-3 ">
+              Kayıt Ol {GoPencil}
+            </label>
+
             <div className="flex flex-wrap -mx-3 mb-6">
               <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                 <label className="block   tracking-wide text-gray-700 text-xs font-bold mb-2  mt-4">
@@ -82,7 +80,7 @@ export default function Register() {
                   {...register("email", {
                     required: true,
                     pattern: /\S+@\S+\.\S+/,
-                  })} 
+                  })}
                   name="email"
                   className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 />
@@ -168,7 +166,6 @@ export default function Register() {
                   {...register("birthDate", {
                     required: "Doğum Yılı girilmeli",
                   })}
-                  
                   className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 />
                 {errors.nationalityId && (

@@ -1,18 +1,30 @@
 import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { GoPencil } from "react-icons/go"
+import { toast } from "react-toastify";
+import AuthService from "../services/AuthService";
 export default function Register() {
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm({ mode: "onChange" });
+  } = useForm({  });
 
   const password = useRef({});
   password.current = watch("password", "");
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+     
+      let authService = new AuthService()
+     authService.candidateRegister(data).then((result)=> {
+      
+      result.data.success ? toast.success(result.data.message) : toast.warning(result.data.message)
+     console.log(result.data.message)
+    })
+    
+  }
+
 
   return (
     
@@ -149,14 +161,14 @@ export default function Register() {
             <div className="flex flex-wrap -mx-3 mb-6">
               <div className="w-full px-3">
                 <label className="block  tracking-wide text-gray-700 text-xs font-bold mb-2">
-                  Doğum Tarhi
+                  Doğum Yılı
                 </label>
                 <input
                   name="birthDate"
                   {...register("birthDate", {
-                    required: "Doğum Tarihi girilmeli",
+                    required: "Doğum Yılı girilmeli",
                   })}
-                  placeholder="31/12/2021"
+                  
                   className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 />
                 {errors.nationalityId && (
@@ -172,7 +184,7 @@ export default function Register() {
                 className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center "
               >
                 <span>Kayıt Ol</span>
-              </button>{" "}
+              </button>
             </div>
           </form>
           <p className="text-center text-white text-xs">

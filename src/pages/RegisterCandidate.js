@@ -32,13 +32,13 @@ export default function Register() {
             className="bg-gray-200 shadow-2xl rounded px-8 pt-6 pb-8 mb-4"
             onSubmit={handleSubmit(onSubmit)}
           >
-            <label className="text-black-300 flex items-center justify-center font-bold text-xl mb-3 ">
+            <label className="text-black-300 flex items-center justify-center font-bold text-xl mb-3 font-sans ">
               Kayıt Ol {GoPencil}
             </label>
 
             <div className="flex flex-wrap -mx-3 mb-6">
               <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label className="block   tracking-wide text-gray-700 text-xs font-bold mb-2  mt-4">
+                <label className="block   tracking-wide text-gray-700 text-xs font-bold mb-2  mt-4 font-sans">
                   Ad
                 </label>
                 <input
@@ -47,13 +47,13 @@ export default function Register() {
                   className="appearance-none block w-full bg-gray-50 border border-gray-200  text-gray-700 rounded py-3 px-4 mb-3  leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 />
                 {errors.firstName && (
-                  <span className="text-red-600">
+                  <span className="text-red-600 font-sans">
                     {errors.firstName.message}
                   </span>
                 )}
               </div>
               <div className="w-full md:w-1/2 px-3">
-                <label className="block   tracking-wide text-gray-700 text-xs font-bold mb-2  mt-4">
+                <label className="block   tracking-wide text-gray-700 text-xs font-bold mb-2  mt-4 font-sans">
                   Soyad
                 </label>
                 <input
@@ -65,7 +65,7 @@ export default function Register() {
                   type="text"
                 />
                 {errors.lastName && (
-                  <span className="text-red-600 ">
+                  <span className="text-red-600 font-sans ">
                     {errors.lastName.message}
                   </span>
                 )}
@@ -73,7 +73,7 @@ export default function Register() {
             </div>
             <div className="flex flex-wrap -mx-3 mb-6">
               <div className="w-full px-3">
-                <label className="block  tracking-wide text-gray-700 text-xs font-bold mb-2">
+                <label className="block  tracking-wide text-gray-700 text-xs font-bold mb-2 font-sans">
                   Email
                 </label>
                 <input
@@ -85,7 +85,7 @@ export default function Register() {
                   className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 />
                 {errors.email && (
-                  <span className="text-red-600">
+                  <span className="text-red-600 font-sans">
                     Geçerli bir email giriniz
                   </span> //do code refactoring
                 )}
@@ -94,14 +94,14 @@ export default function Register() {
 
             <div className="flex flex-wrap -mx-3 mb-6">
               <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label className="block   tracking-wide text-gray-700 text-xs font-bold mb-2  mt-4">
+                <label className="block   tracking-wide text-gray-700 text-xs font-bold mb-2  mt-4 font-sans">
                   Şifre
                 </label>
                 <input
                   type="password"
                   name="password"
                   {...register("password", {
-                    required: "Şifre alanı gerekli",
+                    required: "Şifre boş bırakılamaz",
                     minLength: {
                       value: 8,
                       message: "Şifre en az 8 karakterli olmalı",
@@ -110,13 +110,13 @@ export default function Register() {
                   className="appearance-none block w-full bg-gray-50 border border-gray-200  text-gray-700 rounded py-3 px-4 mb-3  leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 />
                 {errors.password && (
-                  <span className="text-red-600">
+                  <span className="text-red-600 font-sans">
                     {errors.password.message}{" "}
                   </span>
                 )}
               </div>
               <div className="w-full md:w-1/2 px-3">
-                <label className="block   tracking-wide text-gray-700 text-xs font-bold mb-2  mt-4">
+                <label className="block   tracking-wide text-gray-700 text-xs font-bold mb-2  mt-4 font-sans">
                   Şifre Tekrar
                 </label>
                 <input
@@ -130,7 +130,7 @@ export default function Register() {
                   className="mb-3 appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 />
                 {errors.rePassword && (
-                  <span className="text-red-600">
+                  <span className="text-red-600 font-sans">
                     {errors.rePassword.message}{" "}
                   </span>
                 )}
@@ -139,38 +139,38 @@ export default function Register() {
 
             <div className="flex flex-wrap -mx-3 mb-6">
               <div className="w-full px-3">
-                <label className="block  tracking-wide text-gray-700 text-xs font-bold mb-2">
+                <label className="block  tracking-wide text-gray-700 text-xs font-bold mb-2 font-sans">
                   TC kimlik numarası
                 </label>
                 <input
                   name="nationalityId"
                   {...register("nationalityId", {
-                    required: "Kimlik Numarası zorunlu",
+                    required: "Kimlik numarası boş bırakılamaz",
                   })}
                   className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 />
               </div>
               {errors.nationalityId && (
-                <span className="text-red-600 ml-3">
+                <span className="text-red-600 ml-3 font-sans">
                   {errors.nationalityId.message}{" "}
                 </span>
               )}
             </div>
             <div className="flex flex-wrap -mx-3 mb-6">
               <div className="w-full px-3">
-                <label className="block  tracking-wide text-gray-700 text-xs font-bold mb-2">
+                <label className="block  tracking-wide text-gray-700 text-xs font-bold mb-2 font-sans">
                   Doğum Yılı
                 </label>
                 <input
                   name="birthDate"
                   {...register("birthDate", {
-                    required: "Doğum Yılı girilmeli",
+                    required: "Doğum yılı boş bırakılamaz",
                   })}
                   className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 />
                 {errors.nationalityId && (
-                  <span className="text-red-600 ">
-                    {errors.nationalityId.message}{" "}
+                  <span className="text-red-600 font-sans">
+                    {errors.birthDate.message}{" "}
                   </span>
                 )}
               </div>
@@ -178,7 +178,7 @@ export default function Register() {
             <div className="items-center flex justify-center">
               <button
                 type="submit"
-                className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center "
+                className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center font-sans"
               >
                 <span>Kayıt Ol</span>
               </button>

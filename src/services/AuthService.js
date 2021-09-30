@@ -7,4 +7,9 @@ export default class AuthService
        return axios.post("http://localhost:8080/api/auth/candidateregister",candidate)
 
     }
+
+    employerRegister(employer)
+    {
+        return axios.post("http://localhost:8080/api/auth/employerregister",employer)
+    }
 }

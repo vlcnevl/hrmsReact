@@ -1,8 +1,9 @@
 import React from "react";
 import { Route } from "react-router";
-import RegisterCandidate from "../pages/RegisterCandidate";
+import RegisterCandidate from "../pages/Auth/RegisterCandidate";
 import { ToastContainer } from "react-toastify";
-import RegisterEmployer from "../pages/RegisterEmployer";
+import RegisterEmployer from "../pages/Auth/RegisterEmployer";
+import LoginPage from "../pages/Auth/LoginPage";
 
 export default function Dashboard() {
   return (
@@ -11,6 +12,7 @@ export default function Dashboard() {
       <Route path="/" />
       <Route exact path="/registerCandidate" component={RegisterCandidate} />
       <Route exact path="/registerEmployer" component={RegisterEmployer} />
+      <Route exact path="/login" component={LoginPage} />
     </div>
   );
 }

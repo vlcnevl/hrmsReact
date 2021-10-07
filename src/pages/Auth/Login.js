@@ -26,9 +26,9 @@ export default function LoginPage() {
       if (result.data.success) {
         toast.success(result.data.message);
         route();
-
-        dispatch(login());
-      } else toast.warning(result.data.message);
+        dispatch(login());     
+      } 
+      else toast.warning(result.data.message);
     });
   };
 

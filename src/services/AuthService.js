@@ -19,4 +19,9 @@ export default class AuthService
     {
         return axios.post(url + "login",user)
     }
+
+    candidateOrEmployer(email)
+    {
+        return axios.post(url+"candidateoremployer",email)
+    }
 }

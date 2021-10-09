@@ -10,7 +10,7 @@ export default class JobAdvertisementService
 
     getById(id)
     {
-        return axios.post(url + "getbyid?id="+id)
+        return axios.get("http://localhost:8080/api/jobadvertisement/getbyid?id="+id)
     }
 
 }

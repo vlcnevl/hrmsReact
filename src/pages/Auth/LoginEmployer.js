@@ -22,11 +22,12 @@ export default function LoginPage() {
 
   const onSubmit = (data) => {
     let authService = new AuthService();
-    authService.login(data).then((result) => {
+    authService.employerLogin(data).then((result) => {
       if (result.data.success) {
         toast.success(result.data.message);
         route();
-        dispatch(login());     
+        dispatch(login(data.email));     
+       
       } 
       else toast.warning(result.data.message);
     });
@@ -40,7 +41,7 @@ export default function LoginPage() {
           onSubmit={handleSubmit(onSubmit)}
         >
           <label className="text-black-300 flex items-center justify-center font-bold text-xl mb-3 font-sans ">
-            Giriş Yap
+           Şirket Girişi
           </label>
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-full px-3">

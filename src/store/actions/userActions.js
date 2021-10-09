@@ -1,9 +1,11 @@
 export const LOGİN="LOGİN"
 export const LOGOUT="LOGOUT"
+export const MAIL="MAIL"
 
-export function login() {
+export function login(email) {
        return {
            type:LOGİN, 
+           payload:email
        } 
 }
 
@@ -12,3 +14,4 @@ export function logout() {
         type:LOGOUT, 
     } 
 }
+

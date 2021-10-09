@@ -1,16 +1,19 @@
 import { LOGİN , LOGOUT} from "../actions/userActions"
-import { userState } from "../initialValues/userState"
+import { userMail, userState } from "../initialValues/userState"
 
 const initialState = {
     userState: userState,
+    userMail:userMail
 }
 
-export default function userReducer(state=initialState,{type}) {
+export default function userReducer(state=initialState,{type,payload}) {
     switch(type)
     {
         case LOGİN:   
         return {
-          userState:true
+           
+          userState:true,
+          userMail:payload
         }
         case LOGOUT:
         return {
